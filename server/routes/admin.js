@@ -30,4 +30,26 @@ router.post("/api/admin/register", async (req, res) => {
   }
 });
 
+router.post("/api/admin/login", async (req, res) => {
+  try {
+    const { email, pass } = req.body;
+
+    const candidate = await Admin.findOne({ email });
+
+    if (!candidate) return res.status(400).json("Email not found.");
+
+    const isMatch = await bcrypt.compare(pass, candidate.pass);
+
+    if (!isMatch) return res.status(400).json("The password is incorrect");
+
+    const token = jwt.sign({ candidateId: candidate._id }, "MERN", {
+      expiresIn: "2h",
+    });
+
+    res.json({ token, candidateID: candidate._id, roles: candidate.roles });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 module.exports = router;
