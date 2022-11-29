@@ -11,6 +11,10 @@ const PORT = 5050;
 
 app.use(cors());
 
+const AdminRoute = require("./routes/admin");
+
+app.use("/", AdminRoute);
+
 async function start() {
   try {
     await mongoose.connect(
