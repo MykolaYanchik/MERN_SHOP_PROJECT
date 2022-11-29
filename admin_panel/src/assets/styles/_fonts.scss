@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "OpenSans";
+  src: local("OpenSans-Light"), url("../fonts/OpenSans-Light.ttf");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: local("OpenSans-Regular"), url("../fonts/OpenSans-Regular.ttf");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: local("OpenSans-Bold"), url("../fonts/OpenSans-Bold.ttf");
+  font-weight: 700;
+  font-display: swap;
+}
