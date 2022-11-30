@@ -3,6 +3,8 @@ import React, { useState } from "react";
 export default function SignIn() {
   const [form, setForm] = useState({ email: "", pass: "" });
 
+  const error = false;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -19,7 +21,7 @@ export default function SignIn() {
         <h1 className="signIn-page__title">MERN-SHOP</h1>
         <h3 className="signIn-page__subtitle">Administrator panel</h3>
         <form className="signIn-form">
-          <div className="input-wrapper">
+          <div className={error ? "input-wrapper error" : "input-wrapper"}>
             <label>Email</label>
             <div className="input-container">
               <input
@@ -31,7 +33,7 @@ export default function SignIn() {
               <span className="input-error"></span>
             </div>
           </div>
-          <div className="input-wrapper">
+          <div className={error ? "input-wrapper error" : "input-wrapper"}>
             <label>Password</label>
             <div className="input-container">
               <input

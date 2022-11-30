@@ -24,6 +24,18 @@
   padding-top: .125rem;
 }
 
+.error {
+  label {
+    color: red;
+  }
+  .input-container {
+    border-color: red;
+  }
+  input {
+    color: red;
+  }
+}
+
 .input-container:hover {
   box-shadow: 1px 1px 4px rgb(167, 167, 167);
 }
