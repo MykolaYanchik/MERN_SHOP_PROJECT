@@ -1,0 +1,30 @@
+.signIn-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signIn-page {
+  min-width: 40rem;
+  background-color: rgba(231, 231, 231, 0.125);
+  border: 1px solid rgba(231, 231, 231, 0.75);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: $border-radius-max;
+  box-shadow: 3px 3px 7px rgb(187, 187, 187);
+}
+
+.signIn-page__title {
+  font-size: 2.125rem;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+}
+
+.signIn-page__subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
