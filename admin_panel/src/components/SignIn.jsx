@@ -1,19 +1,21 @@
 import React, { useState } from "react";
+import { useForm } from "../utils/hooks/useForm";
 
 export default function SignIn() {
-  const [form, setForm] = useState({ email: "", pass: "" });
-
   const error = false;
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-  };
+  const form = useForm({
+    initialValue: {
+      email: "",
+      pass: "",
+    },
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
   };
+
+  const { values, handleChange } = form;
 
   return (
     <div className="signIn-wrapper">
