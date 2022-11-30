@@ -3,7 +3,7 @@
 }
 
 .input-wrapper {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .input-container {
@@ -12,6 +12,16 @@
   padding: 0.25rem;
   border-radius: $border-radius;
   transition: 0.3s;
+  position: relative;
+}
+
+.input-error {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  font-size: .875rem;
+  color: red;
+  padding-top: .125rem;
 }
 
 .input-container:hover {

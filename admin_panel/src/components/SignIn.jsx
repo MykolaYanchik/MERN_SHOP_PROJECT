@@ -28,6 +28,7 @@ export default function SignIn() {
                 name="email"
                 onChange={(e) => handleChange(e)}
               />
+              <span className="input-error"></span>
             </div>
           </div>
           <div className="input-wrapper">
@@ -39,6 +40,7 @@ export default function SignIn() {
                 name="pass"
                 onChange={(e) => handleChange(e)}
               />
+              <span className="input-error"></span>
             </div>
           </div>
           <button className="form-button" onClick={(e) => handleSubmit(e)}>
