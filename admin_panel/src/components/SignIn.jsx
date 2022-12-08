@@ -9,13 +9,10 @@ export default function SignIn() {
       email: "",
       pass: "",
     },
+    onSubmit: (values) => console.log(values),
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  const { values, handleChange } = form;
+  const { values, handleChange, handleSubmit } = form;
 
   return (
     <div className="signIn-wrapper">
