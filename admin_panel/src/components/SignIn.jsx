@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "../utils/hooks/useForm";
 
 export default function SignIn() {
   const error = false;
+
+  const validationSchema = {
+    email: {
+      email: "email valid",
+      pass: "pass valid",
+    },
+    pass: {
+      pass: "pass valid",
+    },
+  };
 
   const form = useForm({
     initialValue: {
       email: "",
       pass: "",
     },
+    validationSchema: validationSchema,
     onSubmit: (values) => console.log(values),
   });
 
-  const { values, handleChange, handleSubmit } = form;
+  const { handleChange, handleSubmit, errors } = form;
 
   return (
     <div className="signIn-wrapper">
@@ -20,7 +31,9 @@ export default function SignIn() {
         <h1 className="signIn-page__title">MERN-SHOP</h1>
         <h3 className="signIn-page__subtitle">Administrator panel</h3>
         <form className="signIn-form">
-          <div className={error ? "input-wrapper error" : "input-wrapper"}>
+          <div
+            className={errors.email ? "input-wrapper error" : "input-wrapper"}
+          >
             <label>Email</label>
             <div className="input-container">
               <input
@@ -29,10 +42,14 @@ export default function SignIn() {
                 name="email"
                 onChange={(e) => handleChange(e)}
               />
-              <span className="input-error"></span>
+              <span className="input-error">
+                {errors.email ? errors.email : ""}
+              </span>
             </div>
           </div>
-          <div className={error ? "input-wrapper error" : "input-wrapper"}>
+          <div
+            className={errors.pass ? "input-wrapper error" : "input-wrapper"}
+          >
             <label>Password</label>
             <div className="input-container">
               <input
@@ -41,7 +58,9 @@ export default function SignIn() {
                 name="pass"
                 onChange={(e) => handleChange(e)}
               />
-              <span className="input-error"></span>
+              <span className="input-error">
+                {errors.pass ? errors.pass : ""}
+              </span>
             </div>
           </div>
           <button className="form-button" onClick={(e) => handleSubmit(e)}>
