@@ -5,8 +5,11 @@ export const validator = (validationSchema, value) => {
       case "email":
         err = email(value, err);
         break;
-      case "pass":
-        err = pass(value, err);
+      case "min":
+        err = min(value, err);
+        break;
+      case "max":
+        err = max(value, err);
         break;
     }
   }
@@ -16,18 +19,24 @@ export const validator = (validationSchema, value) => {
 function setError(error, msg) {
   if (error.length === 0) {
     error = msg;
-  } else error = error + ", " + msg;
+  } else error = error + " " + msg;
   return error;
 }
 
 function email(value, error) {
   if (value.length === 0) {
-    return setError(error, "too short email");
+    return setError(error, "failed email");
   } else return setError(error, "");
 }
 
-function pass(value, error) {
-  if (value.length === 0) {
+function min(value, error) {
+  if (value.length < 5) {
     return setError(error, "too short pass");
+  } else return setError(error, "");
+}
+
+function max(value, error) {
+  if (value.length > 12) {
+    return setError(error, "too long pass");
   } else return setError(error, "");
 }

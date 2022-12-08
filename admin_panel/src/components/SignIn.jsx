@@ -7,10 +7,10 @@ export default function SignIn() {
   const validationSchema = {
     email: {
       email: "email valid",
-      pass: "pass valid",
     },
     pass: {
-      pass: "pass valid",
+      min: "too short",
+      max: "too long",
     },
   };
 
