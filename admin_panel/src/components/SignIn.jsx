@@ -6,11 +6,11 @@ export default function SignIn() {
 
   const validationSchema = {
     email: {
-      email: "email valid",
+      email: "The email entered is invalid.",
     },
     pass: {
-      min: "too short",
-      max: "too long",
+      min: "Password is too short.",
+      max: "Password is too long.",
     },
   };
 
